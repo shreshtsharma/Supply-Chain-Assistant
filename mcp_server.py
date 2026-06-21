@@ -1,3 +1,4 @@
+import os
 import json
 import pandas as pd
 from pathlib import Path
@@ -166,4 +167,5 @@ def recommend_reorder(product_id: str) -> str:
     return json.dumps(result)
 
 if __name__ == "__main__":
-    mcp.run(transport="stdio")
+    port = int(os.environ.get("PORT", 8000))
+    mcp.run(transport="sse", host="0.0.0.0", port=port)
