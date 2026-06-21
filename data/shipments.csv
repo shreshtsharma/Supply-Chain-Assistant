@@ -1,0 +1,6 @@
+shipment_id,order_id,status,reason
+SH-101,ORD-201,Delivered,-
+SH-102,ORD-202,In Transit,-
+SH-103,ORD-203,Delayed,Weather disruption
+SH-104,ORD-204,In Transit,-
+SH-105,ORD-205,Delayed,Supplier delay

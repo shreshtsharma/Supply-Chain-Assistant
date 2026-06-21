@@ -1,0 +1,6 @@
+product_id,product_name,current_stock,reorder_level,supplier_id
+P101,Steel Rod,120,80,S1
+P102,Aluminium Sheet,40,60,S2
+P103,Copper Wire,25,50,S3
+P104,Bolts,300,100,S1
+P105,Nuts,35,40,S2

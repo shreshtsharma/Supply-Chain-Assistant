@@ -1,0 +1,6 @@
+order_id,product_id,quantity,status
+ORD-201,P101,20,Delivered
+ORD-202,P102,30,Processing
+ORD-203,P103,15,Delayed
+ORD-204,P105,10,Processing
+ORD-205,P103,25,Delayed

@@ -1,0 +1,10 @@
+mcp[cli]
+langchain
+langchain-google-genai
+langchain-groq
+langchain-mcp-adapters
+langgraph
+pandas
+streamlit
+python-dotenv
+streamlit
