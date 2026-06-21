@@ -4,6 +4,9 @@ import json
 import pandas as pd
 from pathlib import Path
 from mcp.server.fastmcp import FastMCP
+from starlette.middleware.trustedhost import TrustedHostMiddleware
+from starlette.applications import Starlette
+
 
 # Loading all CSV files
 DATA_DIR = Path(__file__).parent / "data"
@@ -169,4 +172,6 @@ def recommend_reorder(product_id: str) -> str:
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
-    uvicorn.run(mcp.sse_app(), host="0.0.0.0", port=port)
+    app = mcp.sse_app()
+    app.add_middleware(TrustedHostMiddleware, allowed_hosts=["*"])
+    uvicorn.run(app, host="0.0.0.0", port=port)
