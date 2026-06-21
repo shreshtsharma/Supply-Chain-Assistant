@@ -14,7 +14,7 @@ orders    = pd.read_csv(DATA_DIR / "orders.csv")
 shipments = pd.read_csv(DATA_DIR / "shipments.csv")
 
 # Creating the MCP server
-mcp = FastMCP("supply-chain-risk-server")
+mcp = FastMCP("supply-chain-risk-server",allowed_hosts=["*"])
 
 #Writing tools functionalities
 @mcp.tool()

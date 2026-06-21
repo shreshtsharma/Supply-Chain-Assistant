@@ -17,7 +17,7 @@ async def initialize_agent():
     client = MultiServerMCPClient(
         {
             "supply-chain": {
-                "url": "http://localhost:8000/sse",
+                "url": "https://supply-chain-mcp-server.onrender.com/sse",
                 "transport": "sse",
             }
         }
