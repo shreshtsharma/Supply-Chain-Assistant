@@ -1,3 +1,4 @@
+import uvicorn
 import os
 import json
 import pandas as pd
@@ -167,4 +168,5 @@ def recommend_reorder(product_id: str) -> str:
     return json.dumps(result)
 
 if __name__ == "__main__":
-    mcp.run(transport="sse")
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(mcp.sse_app(), host="0.0.0.0", port=port)
