@@ -134,9 +134,16 @@ def recommend_reorder(product_id: str) -> str:
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
+    
+    app = mcp.sse_app()
+    
+    # This removes Starlette's host header validation
+    app.state.allowed_hosts = ["*"]
+    
     uvicorn.run(
-        mcp.sse_app(),
+        app,
         host="0.0.0.0",
         port=port,
-        forwarded_allow_ips="*"
+        forwarded_allow_ips="*",
+        proxy_headers=True
     )
