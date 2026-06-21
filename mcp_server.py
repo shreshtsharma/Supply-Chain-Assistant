@@ -12,7 +12,7 @@ suppliers = pd.read_csv(DATA_DIR / "suppliers.csv")
 orders    = pd.read_csv(DATA_DIR / "orders.csv")
 shipments = pd.read_csv(DATA_DIR / "shipments.csv")
 
-mcp = FastMCP("supply-chain-risk-server")
+mcp = FastMCP("supply-chain-risk-server", host="0.0.0.0")
 
 @mcp.tool()
 def get_order_details(order_id: str) -> str:
@@ -133,6 +133,8 @@ def recommend_reorder(product_id: str) -> str:
     return json.dumps(result)
 
 if __name__ == "__main__":
+    import os
+    # We can't pass port to run() so we use uvicorn directly
     port = int(os.environ.get("PORT", 8000))
     uvicorn.run(
         mcp.sse_app(),
