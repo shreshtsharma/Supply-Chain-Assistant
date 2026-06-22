@@ -11,7 +11,12 @@ from langgraph.checkpoint.memory import MemorySaver
 load_dotenv()
 os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
 
-llm = ChatGroq(model="llama-3.3-70b-versatile")
+llm = ChatGroq(
+    model="llama-3.1-8b-instant",  
+    temperature=0,
+    max_retries=2,
+)
+
 
 async def initialize_agent():
     client = MultiServerMCPClient(
